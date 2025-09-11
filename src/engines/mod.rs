@@ -644,7 +644,7 @@ pub static CLIENT: LazyLock<wreq::Client> = LazyLock::new(|| {
         .local_address(IpAddr::from_str("0.0.0.0").unwrap())
         // we pretend to be a normal browser so websites don't block us
         .emulation(Emulation::Firefox139)
-        .timeout(Duration::from_secs(10))
+        .timeout(Duration::from_secs(1))
         .build()
         .unwrap()
 });
