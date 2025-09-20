@@ -13,7 +13,7 @@ use futures::future::join_all;
 use maud::PreEscaped;
 use serde::{Deserialize, Deserializer, Serialize};
 use tokio::sync::mpsc;
-use tracing::{error, info};
+use tracing::{error, trace};
 use wreq_util::Emulation;
 
 mod macros;
@@ -571,7 +571,7 @@ pub async fn search(
 ) -> eyre::Result<()> {
     let start_time = Instant::now();
 
-    info!("Doing search");
+    trace!("Doing search");
 
     let progress_tx = &progress_tx;
     let send_engine_progress_update = |engine: Engine, update: EngineProgressUpdate| {
